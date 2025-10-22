@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import * as ToastPrimitive from "@radix-ui/react-toast";
+import { motion } from "framer-motion";
 
 export const ToastContext = React.createContext<{
   open: boolean;
@@ -29,9 +30,27 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
         <ToastPrimitive.Root
           open={open}
           onOpenChange={setOpen}
-          className="fixed bottom-4 right-4 bg-slate-900 text-white px-4 py-2 rounded-xl shadow-lg"
+          duration={2500}
+          className="fixed bottom-4 right-4 bg-slate-900 text-white px-4 py-3 rounded-xl shadow-lg w-80"
+          asChild
         >
-          {message}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0.25 }}
+          >
+            {message && (
+              <>
+                <div className="font-semibold">{message.title}</div>
+                {message.description && (
+                  <div className="text-sm text-slate-300 mt-1">
+                    {message.description}
+                  </div>
+                )}
+              </>
+            )}
+          </motion.div>
         </ToastPrimitive.Root>
         <ToastPrimitive.Viewport />
       </ToastPrimitive.Provider>
