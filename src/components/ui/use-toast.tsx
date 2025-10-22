@@ -4,21 +4,32 @@ import * as React from "react";
 import * as ToastPrimitive from "@radix-ui/react-toast";
 import { motion } from "framer-motion";
 
+type ToastMessage = {
+  title: string;
+  description?: string;
+};
+
+const initialToastMessage = {
+  title: "",
+  description: "",
+};
+
 export const ToastContext = React.createContext<{
   open: boolean;
-  message: string | null;
-  show: (msg: string) => void;
+  message: ToastMessage;
+  show: (msg: ToastMessage) => void;
 }>({
   open: false,
-  message: null,
+  message: initialToastMessage,
   show: () => {},
 });
 
 export function ToastProvider({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = React.useState(false);
-  const [message, setMessage] = React.useState<string | null>(null);
+  const [message, setMessage] =
+    React.useState<ToastMessage>(initialToastMessage);
 
-  const show = (msg: string) => {
+  const show = (msg: ToastMessage) => {
     setMessage(msg);
     setOpen(true);
   };
