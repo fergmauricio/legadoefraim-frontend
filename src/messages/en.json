@@ -1,0 +1,17 @@
+{
+  "Navbar": {
+    "home": "Home",
+    "about": "About",
+    "cart": "Cart"
+  },
+  "Home": {
+    "headline": "Faith you can wear.",
+    "subheadline": "Christian t-shirts with purpose — expressing what you believe in every detail.",
+    "collection": "Featured Collection"
+  },
+  "Product": {
+    "addToCart": "Add to cart",
+    "added": "Added to cart",
+    "addedDescription": "The product has been successfully added!"
+  }
+}

@@ -6,8 +6,15 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
 import { useCartStore } from "@/store/use-cart-store";
+import { motion } from "framer-motion";
+import { useIsClient } from "@/hooks/use-is-client";
+import { LanguageSwitcher } from "@/components/layout/language-switcher";
+import { otherLocale } from "@/lib/i18n";
+import { useLocale } from "next-intl";
 
 export function Navbar() {
+  const locale = useLocale();
+  const isClient = useIsClient();
   const { theme, setTheme } = useTheme();
   const { items, remove, clear, totalItems, totalPrice } = useCartStore();
 
@@ -26,7 +33,7 @@ export function Navbar() {
           <Link href="/about">Sobre</Link>
         </div>
 
-        <div className="flex items-center gap-3">
+        <nav className="flex items-center gap-3">
           <Button
             variant="ghost"
             size="icon"
@@ -38,16 +45,21 @@ export function Navbar() {
               <Moon className="h-5 w-5" />
             )}
           </Button>
+          <motion.span
+            key={otherLocale(locale as "pt" | "en")}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.15 }}
+          >
+            <LanguageSwitcher />
+          </motion.span>
 
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="relative">
                 <ShoppingBag className="h-5 w-5" />
-                {totalItems() > 0 && (
-                  <span
-                    suppressHydrationWarning
-                    className="absolute -top-1 -right-1 bg-yellow-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center"
-                  >
+                {isClient && totalItems() > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-yellow-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
                     {totalItems()}
                   </span>
                 )}
@@ -106,7 +118,7 @@ export function Navbar() {
               )}
             </SheetContent>
           </Sheet>
-        </div>
+        </nav>
       </nav>
     </header>
   );

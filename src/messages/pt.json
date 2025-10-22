@@ -1,0 +1,17 @@
+{
+  "Navbar": {
+    "home": "Início",
+    "about": "Sobre",
+    "cart": "Carrinho"
+  },
+  "Home": {
+    "headline": "Fé que se veste.",
+    "subheadline": "Camisetas cristãs com propósito — expressando o que você crê em cada detalhe.",
+    "collection": "Coleção Destaque"
+  },
+  "Product": {
+    "addToCart": "Adicionar ao carrinho",
+    "added": "Adicionado ao carrinho",
+    "addedDescription": "O produto foi adicionado com sucesso!"
+  }
+}
