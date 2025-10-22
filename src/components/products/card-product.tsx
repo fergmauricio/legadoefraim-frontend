@@ -23,7 +23,9 @@ export function CardProduct({
         <span className="text-yellow-600 font-semibold">
           R$ {product.price}
         </span>
-        <Button className="mt-2">Adicionar ao carrinho</Button>
+        <Button className="mt-2 shadow-soft hover:shadow-hover transition-all duration-300">
+          Adicionar ao carrinho
+        </Button>
       </div>
     </div>
   );

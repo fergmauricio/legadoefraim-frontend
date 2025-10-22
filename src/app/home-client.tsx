@@ -49,6 +49,8 @@ export function HomeClient({ products }: { products: Product[] }) {
                 hidden: { opacity: 0, y: 20 },
                 visible: { opacity: 1, y: 0 },
               }}
+              whileHover={{ scale: 1.03 }}
+              transition={{ type: "spring", stiffness: 250, damping: 20 }}
             >
               <Link
                 href={`/product/${product.slug}`}
