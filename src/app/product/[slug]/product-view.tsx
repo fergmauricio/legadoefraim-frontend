@@ -16,7 +16,10 @@ export function ProductView({ product }: { product: Product }) {
   const handleAddToCart = () => {
     setLoading(true);
     addToCart(product);
-    show(`"${product.name}" foi adicionado ao carrinho`);
+    show({
+      title: "Adicionado ao carrinho",
+      description: `"${product.name}" foi adicionado com sucesso.`,
+    });
     setLoading(false);
   };
 
