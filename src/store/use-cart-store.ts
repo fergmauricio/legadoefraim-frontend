@@ -2,59 +2,69 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import type { Product } from "@/lib/api/products";
 
-export type CartItem = {
-  id: string;
-  name: string;
-  price: number;
-  image: string;
-  qty: number;
-};
+export interface CartItem extends Product {
+  quantity: number;
+}
 
-type CartState = {
+interface CartState {
   items: CartItem[];
-  add: (product: Product, qty?: number) => void;
+  add: (product: Product) => void;
   remove: (id: string) => void;
+  increase: (id: string) => void;
+  decrease: (id: string) => void;
   clear: () => void;
   totalItems: () => number;
   totalPrice: () => number;
-};
+}
 
 export const useCartStore = create<CartState>()(
   persist(
     (set, get) => ({
       items: [],
-      add: (product, qty = 1) =>
-        set((state) => {
-          const existing = state.items.find((i) => i.id === product.id);
-          if (existing) {
-            return {
-              items: state.items.map((i) =>
-                i.id === product.id ? { ...i, qty: i.qty + qty } : i
-              ),
-            };
-          }
-          return {
-            items: [
-              ...state.items,
-              {
-                id: product.id,
-                name: product.name,
-                price: product.price,
-                image: product.images[0],
-                qty,
-              },
-            ],
-          };
-        }),
+
+      add: (product) => {
+        const existing = get().items.find((p) => p.id === product.id);
+        if (existing) {
+          set({
+            items: get().items.map((p) =>
+              p.id === product.id ? { ...p, quantity: p.quantity + 1 } : p
+            ),
+          });
+        } else {
+          set({
+            items: [...get().items, { ...product, quantity: 1 }],
+          });
+        }
+      },
+
       remove: (id) =>
-        set((state) => ({ items: state.items.filter((i) => i.id !== id) })),
+        set({
+          items: get().items.filter((p) => p.id !== id),
+        }),
+
+      increase: (id) =>
+        set({
+          items: get().items.map((p) =>
+            p.id === id ? { ...p, quantity: p.quantity + 1 } : p
+          ),
+        }),
+
+      decrease: (id) =>
+        set({
+          items: get()
+            .items.map((p) =>
+              p.id === id ? { ...p, quantity: Math.max(1, p.quantity - 1) } : p
+            )
+            .filter((p) => p.quantity > 0),
+        }),
+
       clear: () => set({ items: [] }),
-      totalItems: () => get().items.reduce((sum, i) => sum + i.qty, 0),
+
+      totalItems: () => get().items.reduce((acc, p) => acc + p.quantity, 0),
+
       totalPrice: () =>
-        get().items.reduce((sum, i) => sum + i.price * i.qty, 0),
+        get().items.reduce((acc, p) => acc + p.price * p.quantity, 0),
     }),
-    {
-      name: "faithwear:cart",
-    }
+    { name: "faithwear-cart" }
   )
 );
