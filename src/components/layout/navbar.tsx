@@ -10,13 +10,15 @@ import { motion } from "framer-motion";
 import { useIsClient } from "@/hooks/use-is-client";
 import { LanguageSwitcher } from "@/components/layout/language-switcher";
 import { otherLocale } from "@/lib/i18n";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 export function Navbar() {
+  const t = useTranslations("Navbar");
   const locale = useLocale();
   const isClient = useIsClient();
   const { theme, setTheme } = useTheme();
-  const { items, remove, clear, totalItems, totalPrice } = useCartStore();
+  const { items, remove, clear, totalItems, totalPrice, increase, decrease } =
+    useCartStore();
 
   return (
     <header className="sticky top-0 z-50 bg-white/70 dark:bg-slate-950/70 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
@@ -25,12 +27,13 @@ export function Navbar() {
           href="/"
           className="font-display text-2xl font-semibold tracking-tight"
         >
-          Faith<span className="text-yellow-500">Wear</span>
+          {t("enterprise_name1")}
+          <span className="text-yellow-500">{t("enterprise_name2")}</span>
         </Link>
 
         <div className="hidden md:flex items-center gap-8 text-slate-700 dark:text-slate-300">
-          <Link href="/">Home</Link>
-          <Link href="/about">Sobre</Link>
+          <Link href="/">{t("home")}</Link>
+          <Link href="/about">{t("about")}</Link>
         </div>
 
         <nav className="flex items-center gap-3">
@@ -75,28 +78,47 @@ export function Navbar() {
                   {items.map((item) => (
                     <div
                       key={item.id}
-                      className="flex items-center justify-between"
+                      className="flex items-center gap-3 border-b border-slate-200 dark:border-slate-800 pb-3"
                     >
-                      <div>
-                        <p className="font-medium text-slate-800 dark:text-slate-200">
+                      <div className="flex-1 min-w-0">
+                        <p className="font-medium text-slate-800 dark:text-slate-200 truncate">
                           {item.name}
                         </p>
                         <p className="text-sm text-slate-500">
-                          R$ {item.price}
+                          R$ {(item.price * item.quantity).toFixed(2)}
                         </p>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <span className="text-sm text-slate-600">
-                          x{item.qty}
+
+                      <div className="flex items-center flex-shrink-0 gap-1">
+                        <Button
+                          variant="outline"
+                          size="icon"
+                          className="h-7 w-7"
+                          onClick={() => decrease(item.id)}
+                        >
+                          −
+                        </Button>
+                        <span className="w-6 text-center text-sm">
+                          {item.quantity}
                         </span>
                         <Button
+                          variant="outline"
                           size="icon"
-                          variant="ghost"
-                          onClick={() => remove(item.id)}
+                          className="h-7 w-7"
+                          onClick={() => increase(item.id)}
                         >
-                          <Trash2 className="h-4 w-4 text-slate-400" />
+                          +
                         </Button>
                       </div>
+
+                      <Button
+                        size="icon"
+                        variant="ghost"
+                        onClick={() => remove(item.id)}
+                        className="text-red-500 hover:text-red-600 flex-shrink-0"
+                      >
+                        <Trash2 className="h-4 w-4" />
+                      </Button>
                     </div>
                   ))}
                 </div>
