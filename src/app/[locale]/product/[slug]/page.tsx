@@ -5,6 +5,8 @@ import { ProductView } from "./product-view";
 import { ProductJsonLd } from "@/components/seo/product-jsonld";
 import { Navbar } from "@/components/layout/navbar";
 
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL;
+
 export const revalidate = 60;
 
 export async function generateStaticParams() {
@@ -49,7 +51,7 @@ export async function generateMetadata({
     locale === "pt"
       ? product.description
       : product.description_en ?? product.description;
-  const url = `https://faithwear.vercel.app/${locale}/product/${slug}`;
+  const url = `${BASE_URL}/${locale}/product/${slug}`;
 
   return {
     title,

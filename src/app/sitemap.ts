@@ -1,7 +1,7 @@
 import { getProducts } from "@/lib/api/products";
 
 export default async function sitemap() {
-  const baseUrl = "https://faithwear.vercel.app";
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
   const products = await getProducts();
 
   const productUrls = products.map((p) => ({

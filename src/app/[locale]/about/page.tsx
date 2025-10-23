@@ -4,6 +4,8 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { Metadata } from "next";
 
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL;
+
 export const revalidate = 60;
 
 export async function generateMetadata({
@@ -20,7 +22,7 @@ export async function generateMetadata({
     ? "Conheça a missão do Legado Efraim: expressar fé e propósito através de cada estampa e design. Ajudar financeiramente missionários com 30% do lucro de cada camisa."
     : "Learn about Efraim's Legacy mission: to express faith and purpose through each print and design. Financially supporting missionaries with 30% of the profits from each shirt.";
 
-  const url = `https://legadoefraim.vercel.app/${params.locale}/about`;
+  const url = `${BASE_URL}/${params.locale}/about`;
 
   return {
     title,
@@ -28,8 +30,8 @@ export async function generateMetadata({
     alternates: {
       canonical: url,
       languages: {
-        "pt-BR": "https://legadoefraim.vercel.app/pt/about",
-        "en-US": "https://legadoefraim.vercel.app/en/about",
+        "pt-BR": `${BASE_URL}/pt/about`,
+        "en-US": `${BASE_URL}/en/about`,
       },
     },
     openGraph: {
@@ -41,7 +43,7 @@ export async function generateMetadata({
       locale: isPt ? "pt_BR" : "en_US",
       images: [
         {
-          url: "https://legadoefraim.vercel.app/og/legadoefraim-about.jpg",
+          url: `${BASE_URL}/og/legadoefraim-about.jpg`,
           width: 1200,
           height: 630,
           alt: "LegadoEfraim - Vivendo o evangelho, vestindo o propósito.",
@@ -52,7 +54,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title,
       description,
-      images: ["https://legadoefraim.vercel.app/og/legadoefraim-about.jpg"],
+      images: [`${BASE_URL}/og/legadoefraim-about.jpg`],
     },
   };
 }

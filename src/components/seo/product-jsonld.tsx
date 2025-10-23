@@ -14,8 +14,8 @@ interface ProductJsonLdProps {
 }
 
 export function ProductJsonLd({ product, locale }: ProductJsonLdProps) {
-  const baseUrl = "https://legadoefraim.vercel.app";
-  const url = `${baseUrl}/${locale}/product/${product.slug}`;
+  const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL;
+  const url = `${BASE_URL}/${locale}/product/${product.slug}`;
 
   const name = locale === "pt" ? product.name : `${product.name} (EN)`;
   const description =
@@ -57,13 +57,13 @@ export function ProductJsonLd({ product, locale }: ProductJsonLdProps) {
         "@type": "ListItem",
         position: 1,
         name: locale === "pt" ? "Início" : "Home",
-        item: `${baseUrl}/${locale}`,
+        item: `${BASE_URL}/${locale}`,
       },
       {
         "@type": "ListItem",
         position: 2,
         name: locale === "pt" ? "Produtos" : "Products",
-        item: `${baseUrl}/${locale}`,
+        item: `${BASE_URL}/${locale}`,
       },
       {
         "@type": "ListItem",

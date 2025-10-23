@@ -1,9 +1,10 @@
 export async function GET() {
+  const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL;
   return new Response(
     `User-agent: *
 Allow: /
 
-Sitemap: https://legadoefraim.vercel.app/sitemap.xml`,
+Sitemap: ${BASE_URL}/sitemap.xml`,
     {
       headers: { "Content-Type": "text/plain" },
     }
