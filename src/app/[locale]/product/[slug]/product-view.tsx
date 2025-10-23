@@ -3,10 +3,11 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { useState, useMemo } from "react";
-import type { Product } from "@/lib/api/products";
+import { MOCK_PRODUCTS, type Product } from "@/lib/api/products";
 import { useCartStore } from "@/store/use-cart-store";
 import { useToast } from "@/components/ui/use-toast";
 import { ProductList } from "@/components/home/product-list";
+import { StarIcon } from "lucide-react";
 
 export function ProductView({ product }: { product: Product }) {
   const [loading, setLoading] = useState(false);
@@ -18,7 +19,7 @@ export function ProductView({ product }: { product: Product }) {
     setLoading(true);
     addToCart(product);
     show({
-      title: "Adicionado ao carrinho 🛍️",
+      title: "Adicionado ao carrinho",
       description: `"${product.name}" foi adicionado com sucesso.`,
     });
     setLoading(false);
@@ -111,6 +112,3 @@ export function ProductView({ product }: { product: Product }) {
     </>
   );
 }
-
-import { MOCK_PRODUCTS } from "@/lib/api/products";
-import { StarIcon } from "lucide-react";
