@@ -3,7 +3,7 @@ export async function GET() {
     `User-agent: *
 Allow: /
 
-Sitemap: https://faithwear.vercel.app/sitemap.xml`,
+Sitemap: https://legadoefraim.vercel.app/sitemap.xml`,
     {
       headers: { "Content-Type": "text/plain" },
     }
