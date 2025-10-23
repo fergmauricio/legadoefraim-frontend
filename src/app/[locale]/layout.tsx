@@ -13,19 +13,21 @@ export default async function LocaleLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
+  const { locale } = await params;
+
   let messages;
   try {
-    messages = (await import(`@/messages/${params.locale}.json`)).default;
+    messages = (await import(`@/messages/${locale}.json`)).default;
   } catch {
     notFound();
   }
 
   return (
-    <html lang={params.locale} suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <body className="bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50">
-        <NextIntlClientProvider locale={params.locale} messages={messages}>
+        <NextIntlClientProvider locale={locale} messages={messages}>
           <LayoutClient>
             <ToastProvider>{children}</ToastProvider>
           </LayoutClient>
