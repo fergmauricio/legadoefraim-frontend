@@ -1,5 +1,7 @@
 {
   "Navbar": {
+    "enterprise_name1": "Ephraim",
+    "enterprise_name2": "Legacy",
     "home": "Home",
     "about": "About",
     "cart": "Cart"
@@ -13,5 +15,15 @@
     "addToCart": "Add to cart",
     "added": "Added to cart",
     "addedDescription": "The product has been successfully added!"
+  },
+  "About": {
+    "title": "About the Ephraim Legacy",
+    "subtitle": "Faith you can wear. Style that speaks.",
+    "missionTitle": "Our Mission",
+    "missionText": "Ephraim Legacy was born from the desire to express faith through something simple yet powerful: what we wear. Each design carries a message of hope, truth, and love, so that God's Word can be seen and remembered every day.",
+    "valuesTitle": "Our Values",
+    "valuesFaith": "Faith in Christ as the foundation of everything.",
+    "valuesExcellence": "Excellence and purpose in every detail.",
+    "valuesPurpose": "Taking the message of the Gospel beyond words."
   }
 }

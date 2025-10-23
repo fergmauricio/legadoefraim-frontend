@@ -1,5 +1,7 @@
 {
   "Navbar": {
+    "enterprise_name1": "Legado",
+    "enterprise_name2": "Efraim",
     "home": "Início",
     "about": "Sobre",
     "cart": "Carrinho"
@@ -13,5 +15,15 @@
     "addToCart": "Adicionar ao carrinho",
     "added": "Adicionado ao carrinho",
     "addedDescription": "O produto foi adicionado com sucesso!"
+  },
+  "About": {
+    "title": "Sobre o Legado Efraim",
+    "subtitle": "Vivendo o Evangelho, vestindo o propósito.",
+    "missionTitle": "Nossa Missão",
+    "missionText": "O Legado Efraim nasceu do desejo de expressar a fé através de algo simples e poderoso: aquilo que vestimos. Cada estampa carrega uma mensagem de esperança, verdade e amor — para que a Palavra de Deus seja vista e lembrada todos os dias.",
+    "valuesTitle": "Nossos Valores",
+    "valuesFaith": "Fé em Cristo como fundamento de tudo.",
+    "valuesExcellence": "Excelência e propósito em cada detalhe.",
+    "valuesPurpose": "Levar a mensagem do Evangelho além das palavras e contribuir financeiramente com missionários no campo. 30% do lucro de cada peça é destinada a oferta missionária."
   }
 }
