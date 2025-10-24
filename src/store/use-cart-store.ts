@@ -65,6 +65,6 @@ export const useCartStore = create<CartState>()(
       totalPrice: () =>
         get().items.reduce((acc, p) => acc + p.price * p.quantity, 0),
     }),
-    { name: "faithwear-cart" }
+    { name: "legadoefraim-cart" }
   )
 );
