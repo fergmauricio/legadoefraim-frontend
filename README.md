@@ -5,17 +5,18 @@ Este projeto, que ainda está em desenvolvimento, tem o objetivo de ajudar finan
 
 Confira alguns prints do projeto:
 
-<p align="center">
-  <img src="./public/prints/print01.jpg" alt="Print do sistema LegadoEfraim" width="800" />
-</p>
+### Página Inicial
 
-<p align="center">
-  <img src="./public/prints/print02.jpg" alt="Print do sistema LegadoEfraim" width="800" />
-</p>
+![Página Inicial - Light theme](public/prints/print01.jpg)
+![Página Inicial - Dark theme](public/prints/print02.jpg)
 
-<p align="center">
-  <img src="./public/prints/print03.jpg" alt="Print do sistema LegadoEfraim" width="800" />
-</p>
+### Página do Produto
+
+![Página do Produto](public/prints/print03.jpg)
+
+### Performance e SEO (Lighthouse e Core Web Vitals)
+
+![Página do Produto](public/prints/print04.jpg)
 
 ---
 
