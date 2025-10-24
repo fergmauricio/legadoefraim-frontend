@@ -30,11 +30,12 @@ export function ProductJsonLd({ product, locale }: ProductJsonLdProps) {
 
   const productJsonLd = {
     "@context": "https://schema.org",
-    "@type": "Product",
+    "@type": "Organization",
     name,
     description,
     image,
-    url,
+    url: BASE_URL,
+
     category,
     brand: {
       "@type": "Brand",

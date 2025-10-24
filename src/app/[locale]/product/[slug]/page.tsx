@@ -33,8 +33,8 @@ export async function generateMetadata({
     return {
       title:
         locale === "pt"
-          ? "Produto não encontrado | FaithWear"
-          : "Product not found | FaithWear",
+          ? "Produto não encontrado | Legado Efraim"
+          : "Product not found | Legado Efraim",
       description:
         locale === "pt"
           ? "O produto que você procura não existe."
@@ -45,8 +45,8 @@ export async function generateMetadata({
 
   const title =
     locale === "pt"
-      ? `${product.name} | FaithWear`
-      : `${product.name} | FaithWear (EN)`;
+      ? `${product.name} | Legado Efraim`
+      : `${product.name} | Legado Efraim (EN)`;
   const description =
     locale === "pt"
       ? product.description
@@ -56,12 +56,18 @@ export async function generateMetadata({
   return {
     title,
     description,
-    alternates: { canonical: url },
+    alternates: {
+      canonical: url,
+      languages: {
+        "pt-BR": `${BASE_URL}/pt/product/${slug}`,
+        "en-US": `${BASE_URL}/en/product/${slug}`,
+      },
+    },
     openGraph: {
       title,
       description,
       url,
-      siteName: "FaithWear",
+      siteName: "Legado Efraim",
       images: [
         {
           url: product.images[0],
@@ -70,13 +76,19 @@ export async function generateMetadata({
           alt: product.name,
         },
       ],
-      type: "website",
+      type: "product",
     },
+
     twitter: {
       card: "summary_large_image",
       title,
       description,
       images: [product.images[0]],
+      creator: "@legadoefraim",
+    },
+    other: {
+      keywords: "camisetas cristãs, legados de fé, Jesus, roupas cristãs",
+      author: "LegadoEfraim",
     },
   };
 }

@@ -80,7 +80,7 @@ export default function AboutPage() {
           <div className="relative aspect-video rounded-2xl overflow-hidden shadow-lg">
             <Image
               src="/about/legadoefraim-about.jpg"
-              alt="FaithWear Banner"
+              alt="Legado Efraim Banner"
               fill
               className="object-cover"
               priority
