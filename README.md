@@ -7,16 +7,16 @@ Confira alguns prints do projeto:
 
 ### Página Inicial
 
-![Página Inicial - Light theme](public/prints/print01.jpg)
-![Página Inicial - Dark theme](public/prints/print02.jpg)
+![Página Inicial - Light theme](prints/print01.jpg)
+![Página Inicial - Dark theme](prints/print02.jpg)
 
 ### Página do Produto
 
-![Página do Produto](public/prints/print03.jpg)
+![Página do Produto](prints/print03.jpg)
 
 ### Performance e SEO (Lighthouse e Core Web Vitals)
 
-![Página do Produto](public/prints/print04.jpg)
+![Página do Produto](prints/print04.jpg)
 
 ---
 

@@ -35,7 +35,6 @@ export function ProductJsonLd({ product, locale }: ProductJsonLdProps) {
     description,
     image,
     url: BASE_URL,
-
     category,
     brand: {
       "@type": "Brand",
