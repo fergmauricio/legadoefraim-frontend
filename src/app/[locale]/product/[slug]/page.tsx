@@ -76,7 +76,7 @@ export async function generateMetadata({
           alt: product.name,
         },
       ],
-      type: "product",
+      type: "article",
     },
 
     twitter: {
