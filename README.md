@@ -1,9 +1,21 @@
 # LegadoEfraim - Frontend
 
-**LegadoEfraim** é um e-commerce bilíngue desenvolvido com **Next.js 15 (App Router)**, projetado para demonstrar arquitetura moderna de front-end, práticas de performance, organização de código e integração contínua.
-Este projeto, que ainda está em desenvolvimento, tem o objetivo de ajudar financeiramente missionários no campo, investindo 30% do lucro de cada peça no Reino de Deus.
+**LegadoEfraim** é um e-commerce bilíngue desenvolvido com **Next.js 15 (App Router)**, projetado para demonstrar arquitetura moderna de front-end, práticas de performance, organização de código e integração contínua.<br>
+Este projeto, que ainda está em desenvolvimento, tem o objetivo de ajudar financeiramente missionários no campo, investindo 30% do lucro líquido de cada peça para apoiar missionários e ações sociais da igreja.
 
-Confira
+Confira alguns prints do projeto:
+
+<p align="center">
+  <img src="./public/prints/print01.jpg" alt="Print do sistema LegadoEfraim" width="800" />
+</p>
+
+<p align="center">
+  <img src="./public/prints/print02.jpg" alt="Print do sistema LegadoEfraim" width="800" />
+</p>
+
+<p align="center">
+  <img src="./public/prints/print03.jpg" alt="Print do sistema LegadoEfraim" width="800" />
+</p>
 
 ---
 
