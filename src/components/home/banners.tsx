@@ -69,7 +69,7 @@ export function HomeBanner() {
   const current = banners[index];
 
   return (
-    <div className="relative w-full aspect-1920/700 overflow-hidden mb-12">
+    <div className="relative w-full h-[60vh] md:h-[70vh] lg:h-[80vh] overflow-hidden mb-12">
       <AnimatePresence mode="wait">
         <motion.div
           key={current.id}
@@ -85,7 +85,7 @@ export function HomeBanner() {
             fill
             priority={index === 0}
             loading={index === 0 ? "eager" : "lazy"}
-            sizes="100vw, h-full"
+            sizes="100vw"
             className="object-cover object-center"
           />
 
