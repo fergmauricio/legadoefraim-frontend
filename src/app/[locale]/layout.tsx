@@ -8,6 +8,47 @@ export function generateStaticParams() {
   return [{ locale: "pt" }, { locale: "en" }];
 }
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: {
+    default: "LegadoEfraim - Camisetas Cristãs com Propósito",
+    template: "%s | LegadoEfraim",
+  },
+  description:
+    "Loja cristã bilíngue com camisetas de fé e propósito. 30% do lucro é destinado a apoiar missionários no campo.",
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "https://legadoefraim.vercel.app"
+  ),
+  openGraph: {
+    type: "website",
+    title: "LegadoEfraim - Camisetas Cristãs com Propósito",
+    description:
+      "Camisetas cristãs que expressam fé. Parte do lucro é destinado a apoiar missionários.",
+    siteName: "LegadoEfraim",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "LegadoEfraim - Camisetas Cristãs",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "LegadoEfraim - Camisetas Cristãs com Propósito",
+    description:
+      "Camisetas cristãs bilíngues que inspiram fé. 30% do lucro investido no Reino de Deus.",
+    creator: "@legadoefraim",
+    images: ["/og-image.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
 export default async function LocaleLayout({
   children,
   params,

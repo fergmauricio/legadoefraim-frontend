@@ -38,7 +38,7 @@ export function ProductView({ product }: { product: Product }) {
           <div className="relative aspect-square w-full overflow-hidden rounded-2xl shadow-md">
             <Image
               src={activeImage}
-              alt={product.name}
+              alt={`Imagem principal do produto ${product.name}`}
               fill
               className="object-cover transition-all duration-500"
               priority
@@ -50,6 +50,7 @@ export function ProductView({ product }: { product: Product }) {
               {product.images.map((img, i) => (
                 <button
                   key={i}
+                  aria-label={`Visualizar imagem ${i + 1} de ${product.name}`}
                   onClick={() => setActiveImage(img)}
                   className={`relative w-16 h-16 rounded-lg overflow-hidden border transition-all ${
                     activeImage === img
@@ -59,7 +60,7 @@ export function ProductView({ product }: { product: Product }) {
                 >
                   <Image
                     src={img}
-                    alt={`${product.name} ${i + 1}`}
+                    alt={`Miniatura ${i + 1} do produto ${product.name}`}
                     fill
                     className="object-cover"
                   />
