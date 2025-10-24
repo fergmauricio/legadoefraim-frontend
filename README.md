@@ -7,16 +7,16 @@ Confira alguns prints do projeto:
 
 ### Página Inicial
 
-![Página Inicial - Light theme](prints/print01.jpg)
-![Página Inicial - Dark theme](prints/print02.jpg)
+![Página Inicial - Light theme](https://github.com/user-attachments/assets/d4853258-5dcc-4936-aa6b-334722afbc91)
+![Página Inicial - Dark theme](https://github.com/user-attachments/assets/37550dfd-7b99-4acd-950b-f814caa8ca90)
 
 ### Página do Produto
 
-![Página do Produto](prints/print03.jpg)
+![Página do Produto](https://github.com/user-attachments/assets/97f8b919-22eb-4eff-92e1-3c396c64e60b)
 
 ### Performance e SEO (Lighthouse e Core Web Vitals)
 
-![Página do Produto](prints/print04.jpg)
+![Página do Produto](https://github.com/user-attachments/assets/6d6d7561-772d-4f2f-ad9d-419ec7262e10)
 
 ---
 
