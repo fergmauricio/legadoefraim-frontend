@@ -7,6 +7,7 @@ import Link from "next/link";
 import { ProductFilter } from "@/components/home/product-filter";
 import { Button } from "@/components/ui/button";
 import { useProductPagination } from "@/hooks/use-product-pagination";
+import { moneyFormat } from "@/lib/utils";
 
 export function ProductList({ products }: { products: Product[] }) {
   const t = useTranslations("Home");
@@ -42,7 +43,7 @@ export function ProductList({ products }: { products: Product[] }) {
                 {product.name}
               </h3>
               <span className="text-yellow-600 font-semibold">
-                R$ {product.price}
+                {moneyFormat(product.price)}
               </span>
             </div>
           </Link>

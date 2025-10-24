@@ -8,6 +8,7 @@ import { useCartStore } from "@/store/use-cart-store";
 import { useToast } from "@/components/ui/use-toast";
 import { ProductList } from "@/components/home/product-list";
 import { StarIcon } from "lucide-react";
+import { moneyFormat } from "@/lib/utils";
 
 export function ProductView({ product }: { product: Product }) {
   const [loading, setLoading] = useState(false);
@@ -80,7 +81,7 @@ export function ProductView({ product }: { product: Product }) {
           </p>
 
           <div className="text-2xl font-bold text-yellow-600 mb-6">
-            R$ {product.price}
+            {moneyFormat(product.price)}
           </div>
 
           <Button

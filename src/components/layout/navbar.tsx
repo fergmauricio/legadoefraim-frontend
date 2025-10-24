@@ -11,6 +11,7 @@ import { useIsClient } from "@/hooks/use-is-client";
 import { LanguageSwitcher } from "@/components/layout/language-switcher";
 import { otherLocale } from "@/lib/i18n";
 import { useLocale, useTranslations } from "next-intl";
+import { moneyFormat } from "@/lib/utils";
 
 export function Navbar() {
   const t = useTranslations("Navbar");
@@ -85,7 +86,7 @@ export function Navbar() {
                           {item.name}
                         </p>
                         <p className="text-sm text-slate-500">
-                          R$ {(item.price * item.quantity).toFixed(2)}
+                          {moneyFormat(item.price * item.quantity)}
                         </p>
                       </div>
 
@@ -129,7 +130,7 @@ export function Navbar() {
                   <p className="text-sm text-slate-600 mb-2">
                     Total:{" "}
                     <span className="font-semibold text-yellow-600">
-                      R$ {totalPrice().toFixed(2)}
+                      {moneyFormat(totalPrice())}
                     </span>
                   </p>
                   <Button className="w-full mb-2">Finalizar compra</Button>
